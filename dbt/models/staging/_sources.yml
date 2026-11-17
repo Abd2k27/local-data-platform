@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Data as delivered by NYC TLC, loaded by ingestion/nyc_taxi.py.
+    schema: raw
+    tables:
+      - name: yellow_trips
+        description: One row per yellow-taxi trip, one file (month) per source_file.
+        loaded_at_field: loaded_at
+        columns:
+          - name: source_file
+            data_tests: [not_null]
+      - name: taxi_zones
+        description: TLC taxi zone lookup (265 zones).
+        columns:
+          - name: locationid
+            data_tests: [unique, not_null]

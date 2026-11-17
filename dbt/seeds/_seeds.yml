@@ -1,0 +1,13 @@
+version: 2
+
+seeds:
+  - name: payment_types
+    description: TLC payment type codes (data dictionary).
+    columns:
+      - name: payment_type_id
+        data_tests: [unique, not_null]
+  - name: vendors
+    description: TLC technology providers (data dictionary).
+    columns:
+      - name: vendor_id
+        data_tests: [unique, not_null]
